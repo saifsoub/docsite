@@ -38,6 +38,7 @@ const DOCS_SIDEBAR = [
     items: [
       { label: "Chat with a PDF", slug: "docs/tutorials/chat-with-pdf" },
       { label: "Summarize YouTube videos", slug: "docs/tutorials/summarize-youtube-videos" },
+      { label: "ZARA: Government Maturity Assessment Agent", slug: "docs/tutorials/zara-assessment-agent" },
     ],
   },
   {
