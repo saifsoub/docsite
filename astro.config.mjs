@@ -6,13 +6,14 @@ import sitemap from '@astrojs/sitemap';
 import { sidebar } from './src/sidebar.ts';
 import { GOOGLE_DARK_THEME, GOOGLE_LIGHT_THEME } from './src/google-theme';
 
-const site = 'https://genkit.dev';
+const site = process.env.SITE || 'https://genkit.dev';
+const base = process.env.BASE || '';
 const ogUrl = new URL('ogimage.png?v=1', site).href;
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: Update to genkit.dev before launch
   site,
+  base,
   markdown: {
     shikiConfig: {
       langAlias: { dotprompt: 'handlebars' },
@@ -81,7 +82,7 @@ export default defineConfig({
           },
         },
       ],
-      plugins: [starlightLinksValidatorPlugin()],
+      plugins: base ? [] : [starlightLinksValidatorPlugin()],
       logo: {
         dark: './src/assets/lockup_white_tight2.png',
         light: './src/assets/lockup_dark_tight.png',
